@@ -19,7 +19,22 @@
             _cart = cart;
         }
 
+        public ViewResult List()
+        {
+            return View(_repository.Orders.Where(x => !x.Shipped));
+        }
 
+        [HttpPost]
+        public IActionResult MarkShipped(int orderId)
+        {
+            if (_repository.Orders.FirstOrDefault(x => x.OrderID == orderId) is Order order)
+            {
+                order.Shipped = true;
+                _repository.SaveOrder(order);
+            }
+
+            return RedirectToAction(nameof(List));
+        }
 
         [HttpGet]
         public ViewResult Checkout() => View(new Order());
