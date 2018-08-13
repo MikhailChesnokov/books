@@ -1,0 +1,40 @@
+﻿@model Web.Models.Result
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr><th>Controller:</th><td>@Model.Controller</td></tr>
+        <tr><th>Action:</th><td>@Model.Action</td></tr>
+        @foreach (string key in Model.Data.Keys) {
+            <tr><th>@key :</th><td>@Model.Data[key]</td></tr>
+        }
+        @* Passing extra values *@
+        <a asp-controller="Home" asp-action="Index" asp-route-id="2">1</a>
+        
+        @* Fully qualified *@
+        <a
+            asp-controller="Home"
+            asp-action="Index"
+            asp-route-id="2"
+            asp-protocol="http",
+            asp-host="myserver.com",
+            asp-fragment="myFragmant">2</a> @* #myFragment *@
+        
+        @* Specific route *@
+        <a asp-route="myRouteName">1</a>
+        
+        @Url.Action("Index", "Home")
+    </table>
+</div>
+</body>
+</html>
