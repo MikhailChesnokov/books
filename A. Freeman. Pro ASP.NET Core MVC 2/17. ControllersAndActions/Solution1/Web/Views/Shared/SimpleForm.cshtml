@@ -1,0 +1,26 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <form method="post" asp-controller="Home" asp-action="ReceiveForm">
+        <div>
+            <label for="name">Name:</label>
+            <input id="name" name="name" />
+        </div>
+
+        <div>
+            <label for="city">City:</label>
+            <input id="city" name="city" />
+        </div>
+    </form>
+</div>
+</body>
+</html>

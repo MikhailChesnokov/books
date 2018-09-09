@@ -1,0 +1,24 @@
+@model Users.Models.CreateUserForm
+
+<div>
+    <h4>Create User</h4>
+</div>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name"/>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email"/>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password"/>
+    </div>
+    <button type="submit">Create</button>
+    <a asp-action="Index">Cancel</a>
+</form>

@@ -1,0 +1,26 @@
+@model Dictionary<string, string>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Controllers And Actions</title>
+</head>
+<body>
+<div>
+    <table>
+        @foreach (string key in Model.Keys)
+        {
+            <tr>
+                <td>@key</td>
+                <td>@Model[key]</td>
+            </tr>
+        }
+    </table>
+</div>
+</body>
+</html>
